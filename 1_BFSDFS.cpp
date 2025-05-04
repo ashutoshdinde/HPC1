@@ -6,19 +6,19 @@
 
 using namespace std;
 
-const int N = 6; // Number of nodes
+const int N = 6;
 vector<int> graph[N];
 vector<bool> visited_bfs(N, false);
 vector<bool> visited_dfs(N, false);
 
 
-// Add edge to undirected graph
+
 void addEdge(int u, int v) {
     graph[u].push_back(v);
     graph[v].push_back(u);
 }
 
-// Parallel BFS using OpenMP
+
 void parallelBFS(int start) { 
     queue<int> q;   
     visited_bfs[start] = true; 
@@ -56,7 +56,6 @@ void parallelBFS(int start) {
 }
 
 
-// Parallel DFS using OpenMP
 void parallelDFS(int start) {
     stack<int> s;
     visited_dfs[start] = true;
@@ -90,9 +89,9 @@ void parallelDFS(int start) {
     cout << endl;
 }
 
-// Driver code
+
 int main() {
-    // Creating a sample undirected graph
+   
     addEdge(0, 1);
     addEdge(0, 2);
     addEdge(1, 3);
